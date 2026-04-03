@@ -1,0 +1,141 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+#header {
+    height: 3.75rem;
+    background-color: var(--secondary-background-color);
+    color: var(--primary-text-color);
+    font-family: var(--primary-font-family);
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100svw;
+    z-index: 10;
+}
+
+#camera-logo {
+    height: auto;
+    width: 50px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+/*styling for text*/
+.word {
+  font-weight: 700; 
+  font-style: bold;
+  font-size: 0.8rem;
+  margin-right: 5px;
+  position: relative;
+  top: 6px;
+}
+
+/*styling for first word in text*/
+.first {
+  font-weight: 700; 
+  font-size: 1.2rem;
+}
+
+.hamburger-menu {
+  display: block;
+  color: rgb(245, 245, 245);
+  margin-left: auto;
+  margin-right: 20px;
+  position: relative;
+  top: 5px;
+}
+
+nav {
+    display: none;
+}
+
+/* create class for nav when open in drop-menu */
+nav.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 3.75rem; /* samma som header-höjd */
+    right: 0;
+    background-color: var(--secondary-background-color);
+    width: 100%;
+    padding: 1rem;
+    gap: 1rem;
+    z-index: 1000;
+}
+
+nav a {
+    color: var(--primary-text-color);
+    text-decoration: none;
+    padding-left: 2rem;
+    transform-origin: left;
+    font-family: var(--primary-font-family);
+    font-weight: 700;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+    transform: scale(1.1);
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.hamburger-menu:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+
+/* desktop size*/
+@media (min-width: 1024px) {
+    .hamburger-menu{
+        display: none;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        position: relative;
+        top: 8px;
+        gap: 2rem;
+        padding: 0.5rem 1rem;
+        margin-left: auto;
+        font-weight: 700;
+    }
+
+    nav a{
+        color: rgb(245, 245, 245);
+        text-decoration: none;
+        font-size: 0.8rem;
+        transition: 0.2s ease;
+        transform-origin:center;
+    }
+
+    nav a:hover {
+        color: var(--accent-color);
+        transform: scale(1.2);
+        cursor: pointer;
+    }
+}
+
+/*bigger desktop size*/
+@media (min-width: 1921px) {
+    nav a{
+        font-size: 1.5rem;
+    }
+
+    .word {
+  font-size: 1.5rem;
+    }
+
+    .first {
+  font-size: 2rem;
+    }
+}

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!--Hamburgermeny-->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/general.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/card.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <!---Lora Font-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+    rel="stylesheet">
+
+  <!---Roboto font-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buster Keaton</title>
+</head>
+
+
+<body>
+  <header>
+    <div id="header">
+      <img id="camera-logo" src="images/camera.png" alt="camera logo">
+      <span class="word"> <span class="first">B</span>USTER</span>
+      <span class="word"><span class="first">K</span>EATON</span>
+      <span class="word"><span class="first">F</span>ILM</span>
+      <span class="word"><span class="first">F</span>ESTIVAL</span>
+      <span class="material-symbols-outlined hamburger-menu">menu</span>
+
+      <nav>
+        <a href="#">HOME</a>
+        <a href="index.html#movies">THE MOVIES</a>
+        <a href="aboutkeaton.html">ABOUT KEATON</a>
+        <a href="myscreenings.html">MY BOOKED SCREENINGS</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="hero">
+    <div class="hero-content">
+      <img class="portrait hero-img " src="images\hero\hero-portrait1080.webp">
+      <img class="landscape hero-img" src="images\hero\hero-landscape1920.webp">
+
+      <div class="hero-txtbox">
+        <h2 class="hero-title">BUSTER KEATON FILM FESTIVAL</h2>
+        <p class="hero-p">The North End Picture Lounge proudly presents a Weekend of Twelve silent film classics, with
+          select screenings accompanied by live music..</p> <a href="#movies" class="hero-cta">BOOK NOW</a>
+      </div>
+      <div class="hero-banner">
+        <div>LOCATION: The Picture Lounge</div>
+        <div> DATE: 20-21 March</div>
+      </div>
+    </div>
+  </section>
+
+  <main class="main-content">
+
+    <div class="main-header">
+      <div class="header-image">
+        <img src="images/buster-toon-transparent.png" alt="Illustrationn of Buster Keaton" />
+      </div>
+
+      <div class="header-text">
+        <h1><span class="title-fl">BUSTER</span> <span class="title-fl">KEATON</span> <span class="title-fl">FILM</span>
+          <span class="title-fl">FESTIVAL</span>
+        </h1>
+      </div>
+    </div>
+
+    <div class="main-body">
+      <h3 class="main-subtitle">
+        A Weekend of Silent Comedy Magic
+      </h3>
+
+      <p>
+        Step into the world of cinematic genius at the Buster Keaton Film Festival,
+        a weekend celebration of timeless silent films that still make audiences laugh,
+        gasp, and marvel.
+      </p>
+
+      <p>
+        Experience two of Keaton's most legendary works,
+        The General and Steamboat Bill, Jr.
+        brought to life with live musical accompaniment,
+        making every chase, stunt, and pratfall more thrilling than ever.
+      </p>
+
+      <p>
+        Whether you're a lifelong fan or discovering Keaton for the first time,
+        this festival promises a weekend of laughter, artistry,
+        and pure cinematic joy.
+        Don't miss your chance to witness comedy that has shaped the movies we love today.
+      </p>
+    </div>
+
+    <div class="filler-photo">
+      <img src="images/cops.jpg" />
+    </div>
+    <div id="movies">&nbsp;</div>
+    <div class="secondary-main-header">
+      <div class="header-image">
+        <img src="images/buster-toon-transparent.png" alt="Illustrationn of Buster Keaton" />
+      </div>
+
+      <div class="header-text">
+        <h1><span class="title-fl">THE</span> <span class="title-fl">SCREENINGS</span></h1>
+      </div>
+    </div>
+
+    <section class="movieCardsSection">
+      <div class="card-wrapper">
+
+        <div class="cards card-scroller" id="movieContainer">
+
+        </div>
+
+    </section>
+
+  </main>
+  <footer class="footer">
+
+    <!-- Left: Logotype + name -->
+    <div class="footer__brand">
+
+      <!-- logo-->
+      <img src="images/camera.png" alt="Picture Lounge logo" class="footer__logo">
+      <span class="footer__name">THE PICTURE LOUNGE</span>
+    </div>
+
+
+    <div class="footer__email">
+      <p>info@picturelounge.com</p>
+    </div>
+    <div class="footer__phone">
+      <p> +46 70 123 45 67</p>
+    </div>
+    <div class="footer__address">
+      <p>Filmgatan 5, Storstad</p>
+    </div>
+
+    <!-- Right: social media -->
+    <div class="footer__social">
+      <a href="#" aria-label="Instagram">
+        <img src="images/instagram-transparent.png" alt="">
+      </a>
+      <a href="#" aria-label="Facebook">
+        <img src="images/facebooktransparent.png" alt="">
+      </a>
+      <a href="#" aria-label="Youtube">
+        <img src="images/youtube-transparent.png" alt="">
+      </a>
+    </div>
+
+
+  </footer>
+
+  <script src="javascript/horisontalscroll.js"></script>
+  <script src="js/booking.js"></script>
+  <script src="js/menu.js"></script>
+  <script>
+  window.addEventListener('load', function() {
+    if (window.location.hash) {
+      const target = document.querySelector(window.location.hash);
+      if (target) target.scrollIntoView();
+    }
+  });
+</script>
+</body>
+
+</html>

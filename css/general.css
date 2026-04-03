@@ -1,0 +1,41 @@
+:root {
+  /* Color */
+  --primary-background-color: rgb(243, 239, 232);
+  --secondary-background-color: rgb(52, 70, 78);
+  --primary-text-color: rgb(245, 245, 245); 
+  --secondary-text-color: black;
+  --primary-button-color: rgb(46, 142, 25);
+  --secondary-button-color: rgb(216, 0, 0);
+  --primary-card-color: rgb(171, 164, 145);
+  --secondary-card-color: rgb(217, 217, 217);
+  --accent-color: rgb(254, 134, 5);
+
+  /* Others */
+  --primary-font-family: "Roboto Condensed", sans-serif; 
+  --secondary-font-family: "Lora", sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--primary-background-color);
+  font-family: var(--primary-font-family);
+}
+
+
+.lora {
+  font-family: var(--secondary-font-family);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.Roboto {
+  font-family: var(--primary-font-family);
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: Bold;
+}

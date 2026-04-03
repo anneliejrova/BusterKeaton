@@ -1,0 +1,221 @@
+/*
+Orientation-based hero images:
+
+Two <img> elements are used instead of <picture> to ensure reliable orientation
+handling after load. This preserves layout and composition for a fixed-content
+hero section within this project’s scope.
+
+The logic is kept separate to allow easy replacement with a JavaScript-based
+single-image solution that selects an appropriate size and orientation at
+runtime.
+
+Viewport units are used here to maintain proportional scaling between
+text and imagery. clamp() can be introduced later to cap extremes
+without changing the overall layout strategy.
+*/
+
+.hero-content {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.hero-img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 1;
+} 
+
+.portrait{
+  display:none;
+}
+
+.landscape{
+  display:none;
+}
+
+@media (orientation: portrait){
+.portrait{
+  display: block;
+}
+}
+
+@media (orientation: landscape) {
+  .landscape{
+  display:block;
+}
+}
+
+/* banner */
+.hero-banner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--accent-color);
+  z-index: 2; /* above image */
+  display: flex;
+  flex-direction: column;
+  font-family: var(--primary-font-family);
+  color: var(--secondary-text-color);
+  font-size: larger;
+  font-weight: 700;
+  padding: 0.5rem;
+  border: 0.5rem solid transparent;
+  box-sizing: border-box;
+}
+@media (min-width: 451px) {
+  .hero-banner {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* Text Box */
+
+.hero-txtbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  z-index: 3;
+  color: var(--secondary-text-color);
+  background-color: rgba(255, 255, 255, 0.704);
+  box-sizing: border-box;
+}
+
+.hero-cta {
+  align-self: center;
+  background-color: var(--accent-color);
+  border: 0;
+  cursor: pointer;
+  font-family: var(--primary-font-family);
+  text-decoration: none;
+  text-align: center;
+  color: var(--secondary-text-color);
+  font-weight: 700;
+ box-shadow: 0 0 8px rgba(255, 60, 0, 0.6);
+  transition: box-shadow 0.3s ease;
+}
+
+.hero-cta:hover{
+     box-shadow: 0 0 22px rgba(255, 60, 0, 0.8); 
+}
+
+
+
+@media (orientation: portrait){
+  .hero-txtbox {
+  bottom: 15vh;
+  right: 5vw;
+  width: 55vw;
+  height: 32vh;
+  padding: 1vh 2vw;
+  border: 0.1rem solid transparent;
+}
+
+.hero-title{
+  font-size: 3.5vh;
+}
+
+.hero-p{
+  font-size: 2vh;
+}
+
+.hero-cta {
+  width: 45vw;
+  font-size: 5vw;
+  border-bottom: 1vh;
+}
+}
+
+@media (orientation: landscape) {
+.hero-txtbox {
+  bottom: 10vh;
+  right: 5vw;
+  width: 35vw;
+  height: 45vh;
+  padding: 1vh 2vw;
+  border: 0.1rem solid transparent;
+}
+
+.hero-title{
+  font-size: 3.5vw;
+}
+
+.hero-p{
+  font-size: 1.6vw;
+}
+
+
+.hero-cta {
+  width: 30vw;
+  font-size: 2vw;
+  border-bottom: 1vw;
+}
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-txtbox {
+  bottom: 18vh;}
+}
+
+@media (min-width: 1200px) {
+
+  #hero {
+    max-width: 1500px;
+    margin-inline: auto;
+}
+
+  
+  .hero-content {
+    width: 100%;
+    aspect-ratio: 16 / 9; 
+    height: auto;
+    position: relative;
+  }
+
+  /* --- FORCE LANDSCAPE IMAGE --- */
+  .portrait {
+    display: none !important;
+  }
+
+  .landscape {
+    display: block !important;
+  }
+
+ 
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* --- TEXT BOX (landscape values only) --- */
+  .hero-txtbox {
+    bottom: 10%;
+    right: 5%;
+    width: 35%;
+    height: 45%;
+    padding: 1% 2%;
+  }
+
+ 
+  .hero-title {
+    font-size: 48px;
+  }
+
+  .hero-p {
+    font-size: 24px;
+  }
+
+  .hero-cta {
+    width: 360px;
+    font-size: 28px;
+  }
+
+}

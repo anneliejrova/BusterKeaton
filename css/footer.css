@@ -1,0 +1,149 @@
+/*Footer - Desktop First */
+
+.footer {
+    background-color: rgb(52, 70, 78);
+    color: rgb(245, 245, 245);
+    padding: 1rem;
+    font-family: var(--primary-font-family);
+    font-size: clamp(0.9rem, 1.5vw, 2.0rem);
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.footer__brand {
+    justify-content: center;
+    gap: 0.5rem;
+
+}
+
+.footer__logo {
+    width: 5rem;
+    height: auto;
+}
+
+.footer__name {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    display: block;
+    padding-top: 0.6rem;
+}
+
+/* ----- Contact info ----- */
+.footer__email {
+    display: flex;
+    align-items: center;
+    height: 100px;
+}
+
+.footer__email p {
+    margin: 0;
+}
+
+.footer__phone {
+    display: flex;
+    align-items: center;
+    height: 100px;
+}
+
+.footer__phone p {
+    margin: 0;
+}
+
+.footer__address {
+    display: flex;
+    align-items: center;
+    height: 100px;
+}
+
+.footer__address p {
+    margin: 0;
+}
+
+/* ----- Social icons ----- */
+.footer__social {
+    display: flex;
+    align-items: center;
+    height: 100px;
+}
+
+.footer__social p {
+    margin: 0;
+}
+
+
+.footer__social img {
+    width: auto;
+    height: clamp(24px, 4vw, 40px);
+    filter: brightness(0) invert(1);
+    padding-left: 2.0rem;
+}
+
+
+/* -------- Footer - Mobile -------- */
+@media (max-width: 768px) {
+    .footer {
+        display: grid;
+        grid-template-areas:
+            'logo phone social'
+            'logo email social';
+        padding: .7rem 0.3rem;
+        gap: 0;
+        justify-content: unset;
+    }
+
+    .footer__address {
+        display: none;
+    }
+
+    .footer__brand {
+        grid-area: logo;
+        height: initial;
+    }
+
+    .footer__email {
+        padding-top: .2rem;
+        grid-area: email;
+        height: initial;
+        display: initial;
+    }
+
+    .footer__phone {
+        grid-area: phone;
+        height: initial;
+        display: initial;
+        padding-top: 1.3rem;
+    }
+
+    .footer__phone p {
+        text-align: center;
+    }
+
+    .footer__social {
+        grid-area: social;
+        height: initial;
+        align-items: start;
+        justify-content: space-between;
+    }
+
+    .footer__social img {
+        padding-left: initial;
+
+    }
+
+    .footer__name {
+        font-size: 0.8rem;
+        white-space: nowrap;
+        padding-top: .3rem;
+    }
+
+    .footer__logo {
+        width: 3rem;
+        height: auto;
+    }
+}

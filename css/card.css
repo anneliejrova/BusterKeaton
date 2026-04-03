@@ -1,0 +1,187 @@
+.card-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.card-wrapper::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 36px;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    to left,
+    var(--primary-background-color),
+    transparent
+  );
+}
+
+@media (min-width: 1024px) {
+  .card-wrapper::after {
+    display: none;
+  }
+
+  .card {
+    width: calc(33.333% - 24px);
+    height: auto;
+    flex: 1 0 30%;
+    max-width: 360px;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(171, 164, 145);
+  height: 210px;
+  width: min(360px, 85vw);
+  margin: 10px;
+}
+
+.posterbox {
+  margin: 10px;
+  width: 100px;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.screen{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding-right: 12px;
+}
+
+.screen-number {
+  font-family: lora;
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+.screening-day {
+  font-family: Roboto Condensed;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+.film-title {
+  font-family: Roboto Condensed;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.film-year {
+  font-family: lora;
+  font-size: 12px;
+  margin-top: -3px;
+}
+
+.film-plot {
+  font-family: lora italic;
+  font-size: 16px;
+  width: 200px;
+}
+
+.film-cast {
+  font-family: lora;
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+.film-cast span {
+  font-weight: bold;
+}
+
+.booking {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+}
+
+.book-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: 25px;
+  margin-top: 0px;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+.book-button {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  background-color: var(--primary-button-color);
+  border: none;
+  width: 85px;
+  height: 20px;
+  color: rgb(217, 217, 217);
+  font-family: Roboto Condensed;
+  font-weight: bold;
+  padding: 2px 4px;
+  cursor: pointer;
+}
+
+.cancel-button {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  background-color: var(--secondary-button-color);
+  border: none;
+  width: 85px;
+  height: 20px;
+  color: rgb(217, 217, 217);
+  font-family: Roboto Condensed;
+  font-weight: bold;
+  padding: 2px 4px;
+  cursor: pointer;
+}
+
+.seats {
+  font-family: Roboto Condensed;
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+.card-scroller {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 0 16px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 1024px) {
+  .card-scroller {
+    overflow-x: visible;
+    scroll-snap-type: none;
+    -webkit-overflow-scrolling: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+}
