@@ -2,7 +2,7 @@
 
 **Grupprojekt · HTML / CSS / JavaScript · Vanilla frontend med localStorage**
 
-> Repot är en kopia av gruppens repo efter lätt städning därav fokuserar README på mina delare av ett grupprojekt.  
+> Repot är en kopia av gruppens repo efter lätt städning därav fokuserar README på mina delar av ett grupprojekt.  
 > Sidan representerar den inloggade användarens vy.
 
 🎬 **[Live demo](https://LÄNK-HIT)**
