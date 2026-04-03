@@ -5,7 +5,7 @@
 > Repot är en kopia av gruppens repo efter lätt städning därav fokuserar README på mina delar av ett grupprojekt.  
 > Sidan representerar den inloggade användarens vy.
 
-🎬 **[Live demo](https://LÄNK-HIT)**
+🎬 **[Live demo](https://anneliejrova.github.io/BusterKeaton/)**
 
 ---
 
@@ -84,7 +84,7 @@ Att alltid ha en fungerande produkt att visa var ett medvetet val under hela arb
 - **`clamp()` för textstorlek i heron** – mer förutsägbart än `vw`/`vh` när layouten växlar mellan flytande och låst bredd.
 - **Normalisera localStorage-schemat** – separera bokade id:n från platsstatus för att göra `screenings.js` lättare att underhålla och bygga vidare på.
 - **Separera concerns** – Dela upp booking.js i mindre delar.
-
+- **Snyggare poppup** – Designa och koppla en bättre popup till varningen att man inte kan dubbelboka och måste välja vilken film man vill gå på.
 ---
 
 *Övriga delar av sidan – kortdesign och layout – gjordes av andra gruppmedlemmar.*
