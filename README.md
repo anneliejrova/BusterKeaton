@@ -56,35 +56,49 @@ Heron är byggd för att fungera i både portrait och landscape utan att textbox
 
 Textstorleken är beroende av `vw` och `vh` när heron fyller hela viewporten och övergår till fasta mått när layouten låses – något jag idag hade löst med `clamp()` för bättre kontroll.
 
-### Datamodell och rendering
+### Datamodell och State Management
 
 Det här projektet var mitt första där jag använde en JSON-fil för att mocka ett backend-svar och etablera ett gemensamt datakontrakt för gruppen. Jag introducerade strukturen tidigt – innan det tagits upp på lektion – för att vi inte skulle behöva hårdkoda varje filmkort och för att ge den som jobbade med korten en tydlig mall att utgå ifrån.
 
-Varje objekt modellerar en visning med `id` (UUID) som nyckel mot `localStorage`, `day` och `screen` för schemaläggning, samt `showtimes` och `seats` som parallella arrayer – ett värde per visning:
+Varje filmobjekt i JSON-filen fungerar som en blueprint för en visning. Här använder jag parallella arrayer för showtimes och seats för att definiera startvärden:
 
-    { "id": "9b7e5d22-...", "day": 1, "screen": 1, "title": "The General",
-      "showtimes": ["18:30:00", "20:30:00"], "seats": [30, 30] }
+``` JSON
+{
+  "id": "9b7e5d22-1234-4567-890a-112233445566",
+  "day": 1,
+  "screen": 1,
+  "title": "The General",
+  "showtimes": ["18:30:00", "20:30:00"],
+  "seats": [30, 30]
+}
+```
 
-Jag valde specifikt 12 filmer för att ge gruppen layoutmässig flexibilitet. Rendering mot DOM skrevs när heron var klar.
+För att hantera dynamisk data (platstillgång och bokningar) implementerade jag en logik där localStorage fungerar som applikationens state. Vid initial laddning läses standardvärden från JSON, men därefter persisteras och uppdateras all data i webbläsaren för att bevara användarens val vid sidomladdning.
 
-### Bokningssystem och My Screenings
+### Bokningssystem och Logik
+Bokningssystemet (`booking.js`) är en lösning jag utvecklat helt på egen hand. Jag valde att bygga systemet iterativt för att säkerställa en stabil MVP (Minimum Viable Product) genom hela utvecklingsprocessen:
 
-Bokningssystemet byggdes iterativt med tydliga delleveranser längs vägen:
+1. **Dataskikt:** Rendera filmkort dynamiskt från `movies.json` via `fetch`.
+2. **Persistence:** Implementera boka-knappar som skriver till `localStorage`.
+3. **Affärslogik:** Addera kollisionsdetektering och platsräkning.
+4. **Presentation:** Skapa "My Screenings"-vyn som korskör data och renderar schemat.
 
-1. Rendera filmkort från `movies.json` via `fetch`
-2. Boka-knappar som sparar bokningens `id` och vald tid till `localStorage`
-3. Kollisionsdetektering – blockerar överlappande visningar
-4. Platsspårning – räknar ned tillgängliga platser per visning och persisterar i `localStorage`
-5. My Screenings (där jag även tog hand om design) – korsar `localStorage` med JSON-data och renderar ett schema uppdelat per dag som HTML-tabeller, med möjlighet att avboka direkt från schemat
+**Tekniska höjdpunkter i min lösning:**
 
-Att alltid ha en fungerande produkt att visa var ett medvetet val under hela arbetet.
+* **Kollisionsdetektering:** Jag byggde en algoritm som räknar om filmens längd och starttid till minuter via `timeToMinutes`. Om en användare försöker boka en film som överlappar med en befintlig bokning, triggas en varning som ger valet att avboka den gamla visningen till förmån för den nya.
+* **UUID-safe Parsing:** För att hantera bokningar skapade jag en parser som extraherar `movieId`, `day` och `time` från en sammansatt strängnyckel. Genom att använda `.split("-")` och `.pop()` säkerställde jag att logiken fungerar även med komplexa UUID:n som innehåller bindestreck.
+* **Dynamisk State:** Vyn "My Screenings" korskör data från `localStorage` mot JSON-datat för att rendera ett personligt schema i HTML-tabeller, med full funktionalitet för att hantera avbokningar och platsåterställning direkt i vyn.
+
+> **Reflektion:** Att arbeta mot tydliga delleveranser var ett medvetet val. Det gjorde att jag kunde säkra och testa kärnfunktionaliteten tidigt, vilket minimerade stress vid integrationen och garanterade att jag alltid hade en fungerande produkt att visa upp.
+
 
 ## Vad jag skulle gjort annorlunda
 
 - **`clamp()` för textstorlek i heron** – mer förutsägbart än `vw`/`vh` när layouten växlar mellan flytande och låst bredd.
+- **Herobilden** – För att optimera prestandan och förhindra att onödig data laddas ner, skulle jag bytt ut CSS-styrda bakgrundsbilder mot ett <picture>-element med specifika media="(orientation: ...)"-attribut. Detta tillåter webbläsaren att endast ladda ner den bildresurs som faktiskt krävs för användarens nuvarande skärmläge.
 - **Normalisera localStorage-schemat** – separera bokade id:n från platsstatus för att göra `screenings.js` lättare att underhålla och bygga vidare på.
 - **Separera concerns** – Dela upp booking.js i mindre delar.
-- **Snyggare poppup** – Designa och koppla en bättre popup till varningen att man inte kan dubbelboka och måste välja vilken film man vill gå på.
+- **Snyggare popup** – Designa och koppla en bättre popup till varningen att man inte kan dubbelboka och måste välja vilken film man vill gå på.
 ---
 
 *Övriga delar av sidan – kortdesign och layout – gjordes av andra gruppmedlemmar.*

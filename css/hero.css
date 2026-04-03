@@ -1,17 +1,17 @@
 /*
 Orientation-based hero images:
 
-Two <img> elements are used instead of <picture> to ensure reliable orientation
-handling after load. This preserves layout and composition for a fixed-content
-hero section within this project’s scope.
+Dual <img> elements are utilized over the <picture> element to guarantee 
+consistent art direction and layout stability during orientation changes. 
+This preserves layout and composition for a fixed-content hero section 
+within this project’s scope.
 
-The logic is kept separate to allow easy replacement with a JavaScript-based
-single-image solution that selects an appropriate size and orientation at
-runtime.
+The logic is kept separate to allow easy replacement with a <picture> solution 
+that selects an appropriate size and orientation at runtime.
 
-Viewport units are used here to maintain proportional scaling between
-text and imagery. clamp() can be introduced later to cap extremes
-without changing the overall layout strategy.
+Viewport units are used here to maintain proportional scaling between text and 
+imagery. clamp() can be introduced later to cap extremes without changing the 
+overall layout strategy.
 */
 
 .hero-content {
