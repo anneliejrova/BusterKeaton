@@ -1,11 +1,17 @@
-# Buster Keaton Film Festival
+# Buster Keaton Film Festival 
+
 
 **Grupprojekt · HTML / CSS / JavaScript · Vanilla frontend med localStorage**
 
-> Repot är en kopia av gruppens repo efter lätt städning därav fokuserar README på mina delar av ett grupprojekt.  
-> Sidan representerar den inloggade användarens vy.
+ 
+- Repot är en lätt städad kopia av ett grupprojekt byggt 8/12 2025 - 2/1 2026. 
+- README fokuserarar därför på mina delar.
+- Sidan representerar den inloggade användarens vy.
 
 🎬 **[Live demo](https://anneliejrova.github.io/BusterKeaton/)**
+
+### Instruktion för granskning av layout
+Notera: För att se herons fulla responsivitet och hur den växlar mellan portrait- och landscape-logik, rekommenderas att använda webbläsarens Device Mode (i DevTools). Eftersom layouten styrs av både orientation och specifika brytpunkter för aspect-ratio, ger en enkel minskning av fönsterbredden på en desktop inte en rättvisande bild av hur systemet anpassar sig på mobila enheter.
 
 ---
 
@@ -26,25 +32,28 @@ Temavalet var mitt förslag. Buster Keatons tidiga filmer och filmpostrar är pu
 | Google Fonts | Lora + Roboto Condensed |
 | Material Symbols | Hamburgermenyikon |
 
+
 ## Projektstruktur
 
-    ├── css/
-    │   ├── general.css
-    │   ├── header.css
-    │   ├── hero.css
-    │   ├── card.css
-    │   ├── screenings.css
-    │   ├── main.css
-    │   └── footer.css
-    ├── js/
-    │   ├── booking.js
-    │   ├── screenings.js
-    │   └── menu.js
-    ├── images/
-    ├── movies.json
-    ├── index.html
-    ├── myscreenings.html
-    └── aboutkeaton.html
+```text
+├── css/
+│   ├── general.css
+│   ├── header.css
+│   ├── hero.css
+│   ├── card.css
+│   ├── screenings.css
+│   ├── main.css
+│   └── footer.css
+├── js/
+│   ├── booking.js
+│   ├── screenings.js
+│   └── menu.js
+├── images/
+├── movies.json
+├── index.html
+├── myscreenings.html
+└── aboutkeaton.html
+```
 
 CSS är medvetet uppdelad per komponent. Det var mitt förslag för att minimera merge-konflikter – varje gruppmedlem kunde jobba i sin egen fil utan att röra andras kod.
 
